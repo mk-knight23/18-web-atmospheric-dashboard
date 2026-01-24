@@ -42,7 +42,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/45-Weather-PWA-Dashboard/"
             },
             "development": {
               "optimization": false,

@@ -2,14 +2,19 @@ import { Component, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WeatherService } from './core/services/weather.service';
+import { SettingsService } from './core/services/settings.service';
+import { StatsService } from './core/services/stats.service';
+import { AudioService } from './core/services/audio.service';
+import { KeyboardService } from './core/services/keyboard.service';
+import { SettingsPanelComponent } from './features/dashboard/components/settings-panel.component';
 import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, LucideAngularModule],
+  imports: [CommonModule, FormsModule, LucideAngularModule, SettingsPanelComponent],
   template: `
-    <div class="min-h-screen relative flex flex-col items-center">
+    <div class="min-h-screen relative flex flex-col items-center" [class.dark]="settingsService.isDarkMode()" [class.light]="!settingsService.isDarkMode()">
       
       <!-- Dynamic Background Background -->
       <div class="fixed inset-0 z-[-1] transition-all duration-1000"
@@ -37,8 +42,11 @@ import { LucideAngularModule } from 'lucide-angular';
         </div>
 
         <div class="flex items-center space-x-4">
+          <button (click)="openSettings()" class="p-3 rounded-2xl bg-white/20 backdrop-blur-md border border-white/20 text-white hover:bg-white/30 transition-all shadow-lg">
+            <lucide-icon [name]="'settings'" [size]="20"></lucide-icon>
+          </button>
           <button (click)="toggleTheme()" class="p-3 rounded-2xl bg-white/20 backdrop-blur-md border border-white/20 text-white hover:bg-white/30 transition-all shadow-lg">
-            @if (isDarkMode) {
+            @if (settingsService.isDarkMode()) {
               <lucide-icon [name]="'sun'" [size]="20"></lucide-icon>
             } @else {
               <lucide-icon [name]="'moon'" [size]="20"></lucide-icon>
@@ -158,14 +166,16 @@ import { LucideAngularModule } from 'lucide-angular';
       </main>
 
       <footer class="mt-auto py-12 px-6 border-t border-slate-200 dark:border-slate-800 w-full flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400">
-         <div class="flex items-center space-x-2">
-            <span class="font-display font-black text-xl text-slate-300 dark:text-slate-700 uppercase tracking-tighter">SkyScan</span>
-         </div>
-         <p class="text-[10px] font-black uppercase tracking-[0.2em]">© 2026 Atmospheric Dynamics. Staff Engineering Architecture.</p>
-         <div class="flex items-center space-x-6">
-            <a href="https://github.com/mk-knight23/45-Weather-PWA-Dashboard"><lucide-icon [name]="'github'" [size]="18" class="hover:text-blue-500 transition-colors"></lucide-icon></a>
-         </div>
+          <div class="flex items-center space-x-2">
+             <span class="font-display font-black text-xl text-slate-300 dark:text-slate-700 uppercase tracking-tighter">SkyScan</span>
+          </div>
+          <p class="text-[10px] font-black uppercase tracking-[0.2em]">© 2026 Atmospheric Dynamics. Staff Engineering Architecture.</p>
+          <div class="flex items-center space-x-6">
+             <a href="https://github.com/mk-knight23/45-Weather-PWA-Dashboard"><lucide-icon [name]="'github'" [size]="18" class="hover:text-blue-500 transition-colors"></lucide-icon></a>
+          </div>
       </footer>
+
+      <app-settings-panel></app-settings-panel>
     </div>
   `,
   styles: [`
@@ -175,22 +185,56 @@ import { LucideAngularModule } from 'lucide-angular';
 })
 export class App {
   weatherService = inject(WeatherService);
-  isDarkMode = true;
+  settingsService = inject(SettingsService);
+  statsService = inject(StatsService);
+  private audioService = inject(AudioService);
+  private keyboardService = inject(KeyboardService);
   searchCity = '';
 
   constructor() {
-    if (this.isDarkMode) document.documentElement.classList.add('dark');
+    effect(() => {
+      this.settingsService.isDarkMode();
+    });
+
+    effect(() => {
+      const action = this.keyboardService.lastAction();
+      if (action !== 'none') {
+        this.handleAction(action);
+      }
+    });
+  }
+
+  private handleAction(action: string): void {
+    switch (action) {
+      case 'help':
+        this.settingsService.toggleHelp();
+        break;
+      case 'close':
+        if (this.settingsService.showHelp()) {
+          this.settingsService.toggleHelp();
+        }
+        break;
+    }
   }
 
   onSearch() {
     if (this.searchCity.trim()) {
       this.weatherService.fetchWeather(this.searchCity);
+      this.statsService.recordSearch();
+      this.audioService.playSuccess();
     }
   }
 
   toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-    document.documentElement.classList.toggle('dark');
+    this.audioService.playClick();
+    const current = this.settingsService.theme();
+    const next: 'dark' | 'light' | 'system' = current === 'dark' ? 'light' : current === 'light' ? 'system' : 'dark';
+    this.settingsService.setTheme(next);
+  }
+
+  openSettings() {
+    this.audioService.playClick();
+    this.settingsService.toggleHelp();
   }
 
   getBackgroundClass() {
