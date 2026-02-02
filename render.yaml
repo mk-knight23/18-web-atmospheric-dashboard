@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: 18-web-atmospheric-dashboard
+    env: static
+    buildCommand: npm run build
+    publishPath: dist/weather-pwa
+    envVars:
+      - key: NODE_VERSION
+        value: 22
