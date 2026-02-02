@@ -1,4 +1,4 @@
-# SkyScan - Professional Weather Dashboard
+# Web Atmospheric Dashboard
 
 An enterprise-grade weather intelligence platform built with Angular 21 and Tailwind CSS v4.
 
