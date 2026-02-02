@@ -1,10 +1,9 @@
-# SkyScan - Professional Weather PWA Dashboard
+# SkyScan - Professional Weather Dashboard
 
-An enterprise-grade weather intelligence platform built with Angular 19 and designed as a high-performance Progressive Web App (PWA).
+An enterprise-grade weather intelligence platform built with Angular 21 and Tailwind CSS v4.
 
 ## Features
 
-- **PWA Excellence** - Fully installable on desktop and mobile with offline-first support.
 - **Dynamic Intelligence** - Real-time weather scanning with adaptive UI gradients based on atmospheric conditions.
 - **Location Scanning** - Global city search with auto-complete simulation.
 - **Advanced Metrics** - Comprehensive weather stats including feels-like temperature, humidity, wind speed, and pressure.
@@ -12,11 +11,11 @@ An enterprise-grade weather intelligence platform built with Angular 19 and desi
 - **Dark/Light Intelligence** - Sophisticated theme management for all lighting conditions.
 
 ## Tech Stack
-- **Framework:** Angular 19 (Signals, Standalone Architecture)
-- **Styling:** Tailwind CSS (Modern Glassmorphism)
+- **Framework:** Angular 21 (Signals, Standalone Architecture)
+- **Styling:** Tailwind CSS v4 (Modern Glassmorphism)
 - **Icons:** Lucide Angular
-- **PWA:** @angular/pwa (Service Workers, Manifest)
 - **API:** OpenWeatherMap API
+- **Testing:** Vitest 4.0
 
 ## Project Structure
 ```text
@@ -50,8 +49,14 @@ npm start
 npm run build
 ```
 
+### Testing
+```bash
+# Run tests
+npm test
+```
+
 ## Deployment
-This dashboard is optimized for static hosting with PWA features enabled in production builds.
+This dashboard is optimized for static hosting.
 
 ---
 

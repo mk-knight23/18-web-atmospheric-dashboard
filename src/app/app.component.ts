@@ -27,7 +27,7 @@ import { LucideAngularModule } from 'lucide-angular';
           <div class="bg-white/20 p-2.5 rounded-2xl backdrop-blur-md border border-white/30 shadow-lg">
             <span class="text-white text-2xl">⚡</span>
           </div>
-          <h1 class="text-2xl font-display font-black tracking-tight text-white drop-shadow-md">SkyScan<span class="opacity-70 font-light italic">PWA</span></h1>
+          <h1 class="text-2xl font-display font-black tracking-tight text-white drop-shadow-md">SkyScan</h1>
         </div>
 
         <div class="relative w-full max-w-md group">
@@ -126,17 +126,6 @@ import { LucideAngularModule } from 'lucide-angular';
                </div>
             </div>
 
-          </div>
-          
-          <!-- CTA Banner -->
-          <div class="bg-blue-600 rounded-[3rem] p-12 text-white flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl shadow-blue-600/20">
-             <div class="space-y-2 text-center md:text-left">
-                <h3 class="text-3xl font-display font-black tracking-tight">Stay ahead of the weather.</h3>
-                <p class="text-blue-100 font-medium italic">Install SkyScan PWA to get real-time atmospheric insights offline.</p>
-             </div>
-             <button class="bg-white text-blue-600 px-10 py-4 rounded-2xl font-black text-lg hover:scale-105 active:scale-95 transition-all shadow-xl">
-               INSTALL APP
-             </button>
           </div>
 
         } @else if (weatherService.state().error) {
