@@ -1,6 +1,19 @@
-# Web Atmospheric Dashboard
+# 18 Web Atmospheric Dashboard
 
 An enterprise-grade weather intelligence platform built with Angular 21 and Tailwind CSS v4.
+
+## 📦 Deployment
+
+### Render (One-Click Deploy)
+This repository includes a `render.yaml` blueprint for automated deployment:
+1. Visit [dashboard.render.com](https://dashboard.render.com)
+2. Click "New +" → "Blueprint"
+3. Connect repository: `mk-knight23/18-web-atmospheric-dashboard`
+4. Render will auto-detect and apply the blueprint configuration
+
+### Manual Deployment
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist/weather-pwa`
 
 ## Features
 
