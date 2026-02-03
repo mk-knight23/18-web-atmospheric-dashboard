@@ -58,7 +58,7 @@ export class SettingsService {
         this._reducedMotion.set(data.reducedMotion ?? false);
       }
     } catch {
-      console.warn('Failed to load settings');
+      // Silently handle storage read failure
     }
   }
 
@@ -73,7 +73,7 @@ export class SettingsService {
         })
       );
     } catch {
-      console.warn('Failed to save settings');
+      // Silently handle storage write failure
     }
   }
 

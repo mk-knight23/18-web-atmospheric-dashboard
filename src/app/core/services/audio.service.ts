@@ -18,7 +18,7 @@ export class AudioService {
     try {
       this.audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
     } catch {
-      console.warn('Audio context not supported');
+      // Audio not supported - feature gracefully degrades
     }
   }
 
@@ -41,7 +41,7 @@ export class AudioService {
       oscillator.start(this.audioContext.currentTime);
       oscillator.stop(this.audioContext.currentTime + duration);
     } catch {
-      console.warn('Audio playback failed');
+      // Audio playback failed - feature gracefully degrades
     }
   }
 

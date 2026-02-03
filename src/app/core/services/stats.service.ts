@@ -47,7 +47,7 @@ export class StatsService {
         this._lastSearchDate.set(data.lastSearchDate ?? null);
       }
     } catch {
-      console.warn('Failed to load stats');
+      // Silently handle storage read failure
     }
   }
 
@@ -63,7 +63,7 @@ export class StatsService {
         })
       );
     } catch {
-      console.warn('Failed to save stats');
+      // Silently handle storage write failure
     }
   }
 

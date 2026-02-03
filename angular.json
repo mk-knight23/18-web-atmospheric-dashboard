@@ -44,7 +44,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/45-Weather-PWA-Dashboard/"
+              "baseHref": "/"
             },
             "development": {
               "optimization": false,
