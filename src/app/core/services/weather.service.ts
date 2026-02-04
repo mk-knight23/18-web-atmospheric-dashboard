@@ -16,7 +16,11 @@ export class WeatherService {
   currentWeather = computed(() => this.state().current);
   isLoading = computed(() => this.state().loading);
 
-  private readonly API_KEY = '895284fb361c39433360408544c9b8f6'; // Generic key for demo
+  // API Key should be set via environment variable OPENWEATHER_API_KEY
+  // For demo purposes only - replace with your own key
+  private readonly API_KEY = typeof window !== 'undefined' && (window as any).OPENWEATHER_API_KEY
+    ? (window as any).OPENWEATHER_API_KEY
+    : '895284fb361c39433360408544c9b8f6'; // Demo fallback
 
   async fetchWeather(city: string) {
     this.state.update(s => ({ ...s, loading: true, error: null }));
