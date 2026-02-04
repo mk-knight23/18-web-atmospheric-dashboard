@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "atmospheric-dashboard",
     "public": "dist/weather-pwa",
     "ignore": [
       "firebase.json",
