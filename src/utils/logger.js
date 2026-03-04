@@ -10,22 +10,22 @@ export const logger = {
       console.log(`[INFO] ${message}`, data);
     }
   },
-  
+
   warn: (message, data = {}) => {
     console.warn(`[WARN] ${message}`, data);
   },
-  
+
   error: (message, error = {}) => {
     console.error(`[ERROR] ${message}`, {
       message: error.message,
       stack: error.stack,
-      ...error
+      ...error,
     });
   },
-  
+
   debug: (message, data = {}) => {
     if (isDevelopment) {
       console.log(`[DEBUG] ${message}`, data);
     }
-  }
+  },
 };

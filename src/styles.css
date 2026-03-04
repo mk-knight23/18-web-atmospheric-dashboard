@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-weather-sunny: #f59e0b;
@@ -7,7 +7,7 @@
   --color-weather-stormy: #475569;
   --color-weather-clear: #0ea5e9;
 
-  --font-display: "Outfit", sans-serif;
+  --font-display: 'Outfit', sans-serif;
 }
 
 :root {

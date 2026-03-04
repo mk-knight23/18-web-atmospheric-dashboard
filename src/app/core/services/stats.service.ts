@@ -60,7 +60,7 @@ export class StatsService {
           totalLocationsSaved: this._totalLocationsSaved(),
           totalTimeSpent: this._totalTimeSpent(),
           lastSearchDate: this._lastSearchDate(),
-        })
+        }),
       );
     } catch {
       // Silently handle storage write failure
@@ -68,18 +68,18 @@ export class StatsService {
   }
 
   recordSearch(): void {
-    this._totalSearches.update(v => v + 1);
+    this._totalSearches.update((v) => v + 1);
     this._lastSearchDate.set(new Date().toISOString());
     this.saveToStorage();
   }
 
   recordLocationSaved(): void {
-    this._totalLocationsSaved.update(v => v + 1);
+    this._totalLocationsSaved.update((v) => v + 1);
     this.saveToStorage();
   }
 
   addTimeSpent(seconds: number): void {
-    this._totalTimeSpent.update(v => v + seconds);
+    this._totalTimeSpent.update((v) => v + seconds);
     this.saveToStorage();
   }
 

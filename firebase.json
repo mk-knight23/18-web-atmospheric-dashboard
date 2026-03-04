@@ -2,11 +2,7 @@
   "hosting": {
     "site": "atmospheric-dashboard",
     "public": "dist/weather-pwa",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",

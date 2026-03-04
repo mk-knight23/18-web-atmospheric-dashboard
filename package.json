@@ -6,7 +6,14 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "vitest run",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "prettier": {
     "printWidth": 100,
@@ -43,6 +50,10 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^4.0.0",
     "typescript": "~5.9.2",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.8",
+    "": "testing-library/jest-dom",
+    "prettier": "^3",
+    "eslint": "^8",
+    "typescript-eslint": "^7"
   }
 }

@@ -16,13 +16,21 @@ export class AudioService {
 
   private initAudioContext(): void {
     try {
-      this.audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+      this.audioContext = new (
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
+      )();
     } catch {
       // Audio not supported - feature gracefully degrades
     }
   }
 
-  private playTone(frequency: number, duration: number, type: OscillatorType = 'sine', volume: number = 0.3): void {
+  private playTone(
+    frequency: number,
+    duration: number,
+    type: OscillatorType = 'sine',
+    volume: number = 0.3,
+  ): void {
     if (!this.settings.soundEnabled() || !this.audioContext) return;
 
     try {
