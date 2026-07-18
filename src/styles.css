@@ -12,51 +12,79 @@
 
 :root {
   --primary: #3b82f6;
-  --app-bg-light: #f8fafc;
-  --app-bg-dark: #020617;
+  --app-bg-light: #e0e7f1;
+  --app-bg-dark: #0c1222;
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 overflow-x-hidden transition-colors duration-500;
+  background: #e0e7f1;
+  color: #0f172a;
+  overflow-x: hidden;
+  transition: all 0.5s;
   min-height: 100vh;
   font-family: 'Inter', system-ui, sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -200px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,0.1), transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -200px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(14,165,233,0.08), transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .dark body {
-  @apply bg-slate-950 text-slate-50;
+  background: #0c1222;
+  color: #f1f5f9;
 }
 
 @utility glass-card {
-  @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-slate-200/50 dark:border-slate-800/50 rounded-[2.5rem] shadow-xl shadow-slate-200/50 dark:shadow-none transition-all duration-300;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 @utility input-search {
-  @apply w-full bg-white dark:bg-slate-900 border-none rounded-2xl px-6 py-4 shadow-lg shadow-slate-200/50 dark:shadow-none outline-none focus:ring-2 focus:ring-blue-500 transition-all;
+  @apply w-full border-none rounded-full px-6 py-4 outline-none focus:ring-2 focus:ring-blue-500 transition-all;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.dark .input-search {
+  background: rgba(15, 23, 42, 0.5);
 }
 
 @utility weather-gradient-sunny {
   @apply bg-gradient-to-br from-amber-400 via-orange-400 to-amber-500;
-}
-
-@utility weather-gradient-rainy {
-  @apply bg-gradient-to-br from-blue-400 via-indigo-400 to-blue-500;
-}
-
-@utility weather-gradient-clear {
-  @apply bg-gradient-to-br from-sky-400 via-blue-400 to-sky-500;
-}
-
-@utility custom-scrollbar {
-  &::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  &::-webkit-scrollbar-track {
-    @apply bg-transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    @apply bg-slate-200 dark:bg-slate-800 rounded-full;
-  }
 }
