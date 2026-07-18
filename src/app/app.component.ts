@@ -36,7 +36,7 @@ import { LucideAngularModule } from 'lucide-angular';
             <span class="text-white text-2xl">⚡</span>
           </div>
           <h1 class="text-2xl font-display font-black tracking-tight text-white drop-shadow-md">
-            SkyScan
+            MK SkyPulse
           </h1>
         </div>
 
@@ -237,11 +237,11 @@ import { LucideAngularModule } from 'lucide-angular';
         <div class="flex items-center space-x-2">
           <span
             class="font-display font-black text-xl text-slate-300 dark:text-slate-700 uppercase tracking-tighter"
-            >SkyScan</span
+            >MK SkyPulse</span
           >
         </div>
         <p class="text-[10px] font-black uppercase tracking-[0.2em]">
-          © 2026 SkyScan by Musharraf Kazi • Free & open-source
+          © 2026 MK SkyPulse by Qazi Musharof • Free & open-source
         </p>
         <div class="flex items-center space-x-6">
           <a href="https://github.com/mk-knight23/18-web-atmospheric-dashboard"

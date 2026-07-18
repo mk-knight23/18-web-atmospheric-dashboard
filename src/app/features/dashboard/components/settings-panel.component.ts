@@ -127,7 +127,7 @@ import { KeyboardService } from '../../../core/services/keyboard.service';
 
             <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
               <p class="text-center text-sm text-slate-500 dark:text-slate-400">
-                SkyScan PWA v1.0.0 • Built with Angular 21
+                MK SkyPulse PWA v1.0.0 • Built with Angular 21
               </p>
             </div>
           </div>
