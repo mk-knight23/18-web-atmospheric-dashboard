@@ -23,6 +23,14 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "robots.txt",
+                "input": "src"
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "src"
               }
             ],
             "styles": ["src/styles.css"]

@@ -241,10 +241,10 @@ import { LucideAngularModule } from 'lucide-angular';
           >
         </div>
         <p class="text-[10px] font-black uppercase tracking-[0.2em]">
-          © 2026 Atmospheric Dynamics. Staff Engineering Architecture.
+          © 2026 SkyScan by Musharraf Kazi • Free & open-source
         </p>
         <div class="flex items-center space-x-6">
-          <a href="https://github.com/mk-knight23/45-Weather-PWA-Dashboard"
+          <a href="https://github.com/mk-knight23/18-web-atmospheric-dashboard"
             ><lucide-icon
               [name]="'github'"
               [size]="18"
