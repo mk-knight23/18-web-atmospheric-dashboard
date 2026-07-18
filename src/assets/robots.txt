@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://18-web-atmospheric-dashboard.vercel.app/sitemap.xml
