@@ -5,7 +5,7 @@
     "production": "npm run build && npm start",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && cp -r dist/weather-pwa/browser dist/output",
+    "build": "ng build && mkdir -p dist/output && cp -r dist/weather-pwa/browser/* dist/output/",
     "watch": "ng build --watch --configuration development",
     "test": "vitest run",
     "lint": "eslint .",

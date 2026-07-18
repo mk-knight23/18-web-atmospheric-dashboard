@@ -1,15 +1,7 @@
 {
   "version": 2,
-  "name": "18-web-atmospheric-dashboard",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/output"
-      }
-    }
-  ],
+  "buildCommand": "ng build && cp -r dist/weather-pwa/browser/* dist/output/",
+  "outputDirectory": "dist/output",
   "routes": [
     {"handle": "filesystem"},
     {"src": "/(.*)", "dest": "/index.html"}
@@ -23,16 +15,6 @@
         {"key": "X-XSS-Protection", "value": "1; mode=block"},
         {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}
       ]
-    },
-    {
-      "source": "/(.*\\.(js|css))",
-      "headers": [
-        {"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}
-      ]
     }
-  ],
-  "github": {
-    "enabled": true,
-    "autoAlias": true
-  }
+  ]
 }
