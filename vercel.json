@@ -1,6 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "ng build && cp -r dist/weather-pwa/browser/* dist/output/",
+  "framework": null,
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist/output",
   "routes": [
     {"handle": "filesystem"},
